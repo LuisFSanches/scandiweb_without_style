@@ -1,5 +1,4 @@
 import { IProduct } from '../../interfaces/IProduct';
-import { Container, ProductInfo } from './style';
 
 import { formatCurrency } from "../../utils/formatCurrency";
 
@@ -30,16 +29,16 @@ export default function ProductCard({ data, selectProduct }: IProductCard) {
   }
 
   return (
-    <Container color={checkType()?.color as string}>
+    <div>
       <div style={{ width: '100%', padding: '10px' }}>
         <input type="checkbox" className="delete-checkbox" onChange={() => selectProduct(data['id'] as number)}/>
       </div>
-      <ProductInfo>
+      <div>
         <p>{data['sku']}</p>
         <p>{data['name']}</p>
         <p>{formatCurrency(data['price'])}</p>
         <p>{checkType()?.label}</p>
-      </ProductInfo>
-    </Container>
+      </div>
+    </div>
   )
 }
